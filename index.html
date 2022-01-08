@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="main-content">
+        <form action="">
+            <fieldset>
+                <legend><h1>Formulário</h1></legend>
+                
+                <div class="nome-div">
+                    <input type="text" class="input" name="nome" id="nomeInput" onclick="animarInput()" required>
+                    <label for="nomeInput" class="label" id="nomeLabel">Nome Completo</label>
+                </div>
+
+                <div class="telefone-div">
+                    <input type="text" name="telefone" class="input" id="telefoneInput" onclick="animarInput()" required>
+                    <label for="telefoneInput" class="label" id="telefoneLabel">Telefone</label>
+                </div>
+
+                <div class="email-div">
+                    <input type="email" name="email" class="input"  id="emailInput" onclick="animarInput()" required>
+                    <label for="emailInput" class="label" id="emailLabel">Email</label>
+                </div>
+
+                <div class="sexo-div">
+                    <div>
+                        <label>Sexo:</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="sexo" id="femininoInput" value="Feminino" onclick="checar()" required>
+                        <label for="femininoInput" id="femininoLabel">Feminino</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="sexo" id="masculinoInput" value="Masculino" onclick="checar()" required>
+                        <label for="masculinoInput" id="masculinoLabel">Masculino</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="sexo" id="outroInput" value="Outro" onclick="checar()" required>
+                        <label for="outroInput" id="outroLabel">Outro</label>
+                        <input type="text" name="sexo" id="outroText" style="visibility: hidden;" placeholder="Qual?" required>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="sexo" id="nao-informarInput" value="Prefiro não informar" onclick="checar()" required>
+                        <label for="nao-informarInput" id="nao-informarLabel">Prefiro não informar</label>
+                    </div>
+                </div>
+
+                <div class="dataNascimento-div">
+                    <label for="dataNascimentoInput" id="dataNascimentoLabel">Data de Nascimento:</label>
+                    <input type="date" name="dataNascimento" id="dataNascimentoInput" required>
+                </div>
+
+                <div class="endereco-div">
+                    <div class="endereco-linha1">
+                        <div class="logradouro">
+                            <input type="text" name="endereco" class="input" id="logradouroInput" onclick="animarInput()" required>
+                            <label for="logradouroInput" class="label" id="logradouroLabel">Logradouro</label>
+                        </div>
+                        <div class="numero">
+                            <input type="text" name="endereco" class="input" id="numeroInput" onclick="animarInput()" required>
+                            <label for="numeroInput" class="label" id="numeroLabel">Número</label>
+                        </div>
+                        <div class="cep">
+                            <input type="text" name="endereco" class="input" id="cepInput" onclick="animarInput()" required>
+                            <label for="cepInput" class="label" id="cepLabel">CEP</label>
+                        </div>
+                    </div>
+                    <div class="endereco-linha2">
+                        <div class="complemento">
+                            <input type="text" name="endereco" class="input" id="complementoInput" onclick="animarInput()">
+                            <label for="complementoInput" class="label" id="complementoLabel">Complemento</label>
+                        </div>
+                        <div class="bairro">
+                            <input type="text" name="endereco" class="input" id="bairroInput" onclick="animarInput()" required>
+                            <label for="bairroInput" class="label" id="bairroLabel">Bairro</label>
+                        </div>
+                    </div>
+                    <div class="endereco-linha3">
+                        <div class="cidade">
+                            <input type="text" name="endereco" class="input" id="cidadeInput" onclick="animarInput()" required>
+                            <label for="cidadeInput" class="label" id="cidadeLabel">Cidade</label>
+                        </div>
+                        <div class="estado">
+                            <label for="estadoInput" id="estadoLabel">Estado:</label>
+                            <select name="endereco" id="estadoInput" required>
+                                <option value="Selecione" selected disabled>Selecione...</option>
+                                <option value="Acre">AC</option>
+                                <option value="Alagoas">AL</option>
+                                <option value="Amapá">AP</option>
+                                <option value="Amazonas">AM</option>
+                                <option value="Bahia">BA</option>
+                                <option value="Ceará">CE</option>
+                                <option value="Espírito Santo">ES</option>
+                                <option value="Goiás">GO</option>
+                                <option value="Maranhão">MA</option>
+                                <option value="Mato Grosso">MT</option>
+                                <option value="Mato Grosso do Sul">MS</option>
+                                <option value="Minas Gerais">MG</option>
+                                <option value="Pará">PA</option>
+                                <option value="Paraíba">PB</option>
+                                <option value="Paraná">PR</option>
+                                <option value="Pernambuco">PE</option>
+                                <option value="Piauí">PI</option>
+                                <option value="Rio de Janeiro">RJ</option>
+                                <option value="Rio Grande do Norte">RN</option>
+                                <option value="Rio Grande do Sul">RS</option>
+                                <option value="Rondônia">RO</option>
+                                <option value="Roraima">RR</option>
+                                <option value="Santa Catarina">SC</option>
+                                <option value="São Paulo">SP</option>
+                                <option value="Sergipe">SE</option>
+                                <option value="Tocantins">TO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="comentarios">
+                    <label>Conte um pouco sobre você:</label>
+                    <textarea name="comentarios" id="textArea" cols="50" rows="6" style="resize: none;"></textarea>
+                </div>
+                <div class="botoes-div">
+                    <button type="reset" id="reset">Limpar</button>
+                    <button type="submit" id="submit">Enviar</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <script>
+        const inputOutro = document.getElementById('outroInput')
+        const outroText = document.getElementById('outroText')
+        function checar(){
+            if(inputOutro.checked == true){
+                outroText.disabled = false
+                outroText.style = 'visibility: visible;'
+                outroText.focus()
+            }
+            if(inputOutro.checked == false){
+                outroText.value = ''
+                outroText.disabled = true
+                outroText.style = 'visibility: hidden;'
+            }
+        }
+
+        const complementoInput = document.querySelector('#complementoInput')
+        const complementoLabel = document.querySelector('#complementoLabel')
+        const label = document.querySelector('.label')
+
+        function animarInput(){
+            label.classList.add('animar')
+        }
+
+
+    </script>
+</body>
+</html>

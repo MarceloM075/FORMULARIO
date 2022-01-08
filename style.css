@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --cor-azul: rgb(0, 140, 255)
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to right, rgb(46, 90, 172), rgb(66, 40, 87));
+    color: white;
+}
+
+.main-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 10px;
+    width: 30%;
+    max-width: 472px;
+    min-width: 420px;
+    min-height: 620px;
+}
+
+fieldset{
+    border: 3px solid var(--cor-azul);
+    margin: 0;
+}
+
+fieldset legend{
+    padding: 0;
+    position: relative;
+    display: flex;
+    text-align: center;
+}
+
+fieldset legend h1{
+    color: white;
+    background-color: var(--cor-azul);
+    border-radius: 6px;
+    margin: 0;
+    padding: 6px 10px;
+}
+
+input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    margin: 10px;
+    letter-spacing: 1px;
+}
+
+input:focus ~ .animar,
+input:valid ~ .animar{
+    transform: translateY(-52px);
+    font-size: 10px;
+    transition: .5s;
+    color: var(--cor-azul);
+}
+
+.label{
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 12px;
+    pointer-events: none;
+    transform: translateY(-40px);
+}
+
+#nomeInput, #telefoneInput, #emailInput, 
+.sexo-div{
+    position: relative;
+    width: 95%;
+}
+
+.sexo-div div:first-child{
+    margin-left: 12px;
+}
+
+.sexo-div div:nth-child(n+2):nth-child(-n+5){
+    margin-left: 40px;
+}
+
+.dataNascimento-div{
+    display: flex;
+}
+
+#dataNascimentoLabel{
+    margin-top: 13px;
+    margin-left: 11px;
+    margin-right: 10px;
+}
+
+#dataNascimentoInput{
+    position: relative;
+    width: 150px;
+    margin-right: 1px;
+    padding-left: 5px;
+    background: white;
+    color: black;
+    border-radius: 8px;
+    height: 28px;
+}
+
+.endereco-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.endereco-linha1{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 4fr 2fr 3fr;
+}
+
+#logradouroInput{
+    position: relative;
+    width: 90%;
+}
+
+#numeroInput{
+    position: relative;
+    width: 80%;
+}
+
+#cepInput{
+    position: relative;
+    width: 85%;
+}
+
+.endereco-linha2{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+#bairroInput{
+    position: relative;
+    width: 90%;
+}
+
+#complementoInput{
+    position: relative;
+    width: 90%;
+}
+
+.endereco-linha3{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 2fr;
+}
+
+#cidadeInput{
+    position: relative;
+    width: 90%;
+}
+
+.estado{
+    margin-top: 10px;
+    margin-left: 13px;
+}
+
+.comentarios{
+    margin: 10px;
+}
+
+.comentarios label:first-child{
+    margin-left: 2px;
+}
+
+.comentarios textarea{
+    position: relative;
+    margin-top: 4px;
+    width: 100%;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+.botoes-div{
+    text-align: end;
+    margin: 4px;
+}
+
+.botoes-div button{
+    background-image: linear-gradient(to right, rgb(67, 100, 172), rgb(77, 42, 107));
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.botoes-div button:hover{
+    background-image: linear-gradient(to right, rgb(99, 73, 121), rgb(66, 40, 87));
+}
+
+.botoes-div button:first-child{
+    margin-right: 8px;
+}
+

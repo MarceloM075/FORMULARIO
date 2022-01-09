@@ -9,23 +9,23 @@
 </head>
 <body>
     <section class="main-content">
-        <form action="">
+        <form >
             <fieldset>
                 <legend><h1>Formulário</h1></legend>
                 
                 <div class="nome-div">
-                    <input type="text" class="input" name="nome" id="nomeInput" onclick="animarInput()" required>
-                    <label for="nomeInput" class="label" id="nomeLabel">Nome Completo</label>
+                    <input type="text" class="input" name="nome" id="nomeInput" required>
+                    <label for="nomeInput" class="label " id="nomeLabel">Nome Completo</label>
                 </div>
 
                 <div class="telefone-div">
-                    <input type="text" name="telefone" class="input" id="telefoneInput" onclick="animarInput()" required>
-                    <label for="telefoneInput" class="label" id="telefoneLabel">Telefone</label>
+                    <input type="text" name="telefone" class="input" id="telefoneInput" required>
+                    <label for="telefoneInput" class="label " id="telefoneLabel">Telefone</label>
                 </div>
 
                 <div class="email-div">
-                    <input type="email" name="email" class="input"  id="emailInput" onclick="animarInput()" required>
-                    <label for="emailInput" class="label" id="emailLabel">Email</label>
+                    <input type="email" name="email" class="input"  id="emailInput" required>
+                    <label for="emailInput" class="label " id="emailLabel">Email</label>
                 </div>
 
                 <div class="sexo-div">
@@ -63,32 +63,32 @@
                 <div class="endereco-div">
                     <div class="endereco-linha1">
                         <div class="logradouro">
-                            <input type="text" name="endereco" class="input" id="logradouroInput" onclick="animarInput()" required>
-                            <label for="logradouroInput" class="label" id="logradouroLabel">Logradouro</label>
+                            <input type="text" name="endereco" class="input" id="logradouroInput" required>
+                            <label for="logradouroInput" class="label " id="logradouroLabel">Logradouro</label>
                         </div>
                         <div class="numero">
-                            <input type="text" name="endereco" class="input" id="numeroInput" onclick="animarInput()" required>
-                            <label for="numeroInput" class="label" id="numeroLabel">Número</label>
+                            <input type="text" name="endereco" class="input" id="numeroInput" required>
+                            <label for="numeroInput" class="label " id="numeroLabel">Número</label>
                         </div>
                         <div class="cep">
-                            <input type="text" name="endereco" class="input" id="cepInput" onclick="animarInput()" required>
-                            <label for="cepInput" class="label" id="cepLabel">CEP</label>
+                            <input type="text" name="endereco" class="input" id="cepInput" required>
+                            <label for="cepInput" class="label " id="cepLabel">CEP</label>
                         </div>
                     </div>
                     <div class="endereco-linha2">
                         <div class="complemento">
-                            <input type="text" name="endereco" class="input" id="complementoInput" onclick="animarInput()">
-                            <label for="complementoInput" class="label" id="complementoLabel">Complemento</label>
+                            <input type="text" name="endereco" class="input" id="complementoInput">
+                            <label for="complementoInput" class="label " id="complementoLabel">Complemento</label>
                         </div>
                         <div class="bairro">
-                            <input type="text" name="endereco" class="input" id="bairroInput" onclick="animarInput()" required>
-                            <label for="bairroInput" class="label" id="bairroLabel">Bairro</label>
+                            <input type="text" name="endereco" class="input" id="bairroInput" required>
+                            <label for="bairroInput" class="label " id="bairroLabel">Bairro</label>
                         </div>
                     </div>
                     <div class="endereco-linha3">
                         <div class="cidade">
-                            <input type="text" name="endereco" class="input" id="cidadeInput" onclick="animarInput()" required>
-                            <label for="cidadeInput" class="label" id="cidadeLabel">Cidade</label>
+                            <input type="text" name="endereco" class="input" id="cidadeInput" required>
+                            <label for="cidadeInput" class="label " id="cidadeLabel">Cidade</label>
                         </div>
                         <div class="estado">
                             <label for="estadoInput" id="estadoLabel">Estado:</label>
@@ -151,16 +151,32 @@
                 outroText.style = 'visibility: hidden;'
             }
         }
+    </script>
 
-        const complementoInput = document.querySelector('#complementoInput')
-        const complementoLabel = document.querySelector('#complementoLabel')
-        const label = document.querySelector('.label')
+    <script>
+        const label = document.querySelectorAll('.label')
+        const input = document.querySelectorAll('.input')
 
-        function animarInput(){
-            label.classList.add('animar')
-        }
+        for(let item of input){
+           
+            item.addEventListener('focus', (focus) => {
 
+                focus.target.nextElementSibling.classList.add('animar') 
+       
+            })
+            
 
+            item.addEventListener('blur', (blur) => {
+                
+                if(item.value != ''){
+                    blur.target.nextElementSibling.classList.add('animar') 
+                }else{
+                    blur.target.nextElementSibling.classList.remove('animar')     
+                }
+
+            })
+
+        }    
     </script>
 </body>
 </html>

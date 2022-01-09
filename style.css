@@ -55,9 +55,13 @@ input{
     letter-spacing: 1px;
 }
 
-input:focus ~ .animar,
-input:valid ~ .animar{
-    transform: translateY(-52px);
+.nome-div, .telefone-div, .email-div, .logradouro,
+.numero, .cep, .complemento, .bairro, .cidade{
+    position: relative;
+}
+
+.animar{
+    top: 29px;
     font-size: 10px;
     transition: .5s;
     color: var(--cor-azul);
@@ -69,6 +73,7 @@ input:valid ~ .animar{
     margin-left: 12px;
     pointer-events: none;
     transform: translateY(-40px);
+    transition: .3s;
 }
 
 #nomeInput, #telefoneInput, #emailInput, 
@@ -199,7 +204,7 @@ input:valid ~ .animar{
 }
 
 .botoes-div button:hover{
-    background-image: linear-gradient(to right, rgb(99, 73, 121), rgb(66, 40, 87));
+    background-image: linear-gradient(to right, rgb(99, 73, 121), rgb(66, 40, 87));  
 }
 
 .botoes-div button:first-child{

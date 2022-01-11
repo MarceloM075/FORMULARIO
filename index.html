@@ -34,23 +34,17 @@
                     </div>
 
                     <div>
-                        <input type="radio" name="sexo" id="femininoInput" value="Feminino" onclick="checar()" required>
+                        <input type="radio" name="sexo" id="femininoInput" value="Feminino" required>
                         <label for="femininoInput" id="femininoLabel">Feminino</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="sexo" id="masculinoInput" value="Masculino" onclick="checar()" required>
+                        <input type="radio" name="sexo" id="masculinoInput" value="Masculino" required>
                         <label for="masculinoInput" id="masculinoLabel">Masculino</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="sexo" id="outroInput" value="Outro" onclick="checar()" required>
-                        <label for="outroInput" id="outroLabel">Outro</label>
-                        <input type="text" name="sexo" id="outroText" style="visibility: hidden;" placeholder="Qual?" required>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="sexo" id="nao-informarInput" value="Prefiro não informar" onclick="checar()" required>
+                        <input type="radio" name="sexo" id="nao-informarInput" value="Prefiro não informar" required>
                         <label for="nao-informarInput" id="nao-informarLabel">Prefiro não informar</label>
                     </div>
                 </div>
@@ -93,7 +87,7 @@
                         <div class="estado">
                             <label for="estadoInput" id="estadoLabel">Estado:</label>
                             <select name="endereco" id="estadoInput" required>
-                                <option value="Selecione" selected disabled>Selecione...</option>
+                                <option value="" selected>Selecione...</option>
                                 <option value="Acre">AC</option>
                                 <option value="Alagoas">AL</option>
                                 <option value="Amapá">AP</option>
@@ -136,47 +130,95 @@
         </form>
     </section>
 
+    
+                       <!-- Pequena animação nos labels de cada input -->
     <script>
-        const inputOutro = document.getElementById('outroInput')
-        const outroText = document.getElementById('outroText')
-        function checar(){
-            if(inputOutro.checked == true){
-                outroText.disabled = false
-                outroText.style = 'visibility: visible;'
-                outroText.focus()
-            }
-            if(inputOutro.checked == false){
-                outroText.value = ''
-                outroText.disabled = true
-                outroText.style = 'visibility: hidden;'
-            }
-        }
-    </script>
-
-    <script>
-        const label = document.querySelectorAll('.label')
         const input = document.querySelectorAll('.input')
 
         for(let item of input){
-           
-            item.addEventListener('focus', (focus) => {
-
+            item.addEventListener('focus', focus => {
                 focus.target.nextElementSibling.classList.add('animar') 
-       
             })
             
 
-            item.addEventListener('blur', (blur) => {
-                
+            item.addEventListener('blur', blur => { 
                 if(item.value != ''){
                     blur.target.nextElementSibling.classList.add('animar') 
                 }else{
                     blur.target.nextElementSibling.classList.remove('animar')     
                 }
-
             })
-
         }    
+    </script>
+
+
+                        <!-- Validação dos inputs -->
+    <script>
+        const requireds = document.querySelectorAll('[required]')
+        
+
+        function ValidateField(field){
+            const fieldRequired = field.target
+
+            // Verificando se existe erro.
+
+            function verifyErrors(){
+                let foundError = false
+
+                for(let error in fieldRequired.validity){
+
+                    if(fieldRequired.validity[error] && !fieldRequired.validity.valid){
+                        foundError = error
+                    }
+                }
+
+                return foundError
+            }
+            const error = verifyErrors()
+            console.log("Error exists: ", error)
+
+            //Tratando o erro, caso exista.
+
+            if(error){
+                if(fieldRequired.parentElement.classList.contains("dataNascimento-div") || fieldRequired.parentElement.classList.contains("estado")){
+                    fieldRequired.classList.add('errorBorderBox')
+                }else{
+                    fieldRequired.classList.add('errorBorderTextInput')
+                }
+
+                if(fieldRequired.nextElementSibling == null){
+                    fieldRequired.previousElementSibling.classList.add('errorText')
+                }else{
+                    fieldRequired.nextElementSibling.classList.add('errorText')
+                }
+
+            }else{
+                if(fieldRequired.parentElement.classList.contains("dataNascimento-div") || fieldRequired.parentElement.classList.contains("estado")){
+                    fieldRequired.classList.remove('errorBorderBox')
+                }else{
+                    fieldRequired.classList.remove('errorBorderTextInput')
+                }
+
+
+                if(fieldRequired.nextElementSibling == null){
+                    fieldRequired.previousElementSibling.classList.remove('errorText')
+                }else{
+                    fieldRequired.nextElementSibling.classList.remove('errorText')
+                }
+            }
+
+                
+        }
+
+        
+        for(let input of requireds){
+            input.addEventListener("invalid", event =>{
+                event.preventDefault()
+
+                ValidateField(event)
+            })
+            input.addEventListener("blur", ValidateField)
+        }  
     </script>
 </body>
 </html>

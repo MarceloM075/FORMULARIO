@@ -60,13 +60,6 @@ input{
     position: relative;
 }
 
-.animar{
-    top: 29px;
-    font-size: 10px;
-    transition: .5s;
-    color: var(--cor-azul);
-}
-
 .label{
     position: absolute;
     margin-top: 8px;
@@ -169,6 +162,13 @@ input{
     margin-left: 13px;
 }
 
+#estadoInput{
+    border-radius: 6px;
+    height: 20px;
+}
+
+
+
 .comentarios{
     margin: 10px;
 }
@@ -211,3 +211,29 @@ input{
     margin-right: 8px;
 }
 
+
+
+/* Estilo da animação dos inputs */
+.animar{
+    top: 29px;
+    font-size: 10px;
+    transition: .5s;
+    color: var(--cor-azul);
+}
+/* ----------------------------- */
+
+
+
+/* Estilo quando ocorre algum erro. */
+.errorText{
+    color: rgb(255, 100, 100);
+}
+
+.errorBorderBox{
+    border: 2px solid red;
+}
+
+.errorBorderTextInput{
+    border-bottom: 2px solid red
+}
+/* -------------------------------- */
